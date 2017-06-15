@@ -1,0 +1,30 @@
+{
+  "name": "mean_stack",
+  "version": "1.0.0",
+  "description": "this is a full mean stack website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies":{
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors":"*",
+    "jsonwebtoken":"*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt":"*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0Steve0/Mean_stack.git"
+  },
+  "author": "Steve Shao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0Steve0/Mean_stack/issues"
+  },
+  "homepage": "https://github.com/0Steve0/Mean_stack#readme"
+}
