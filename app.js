@@ -30,9 +30,13 @@ app.use(express.static(path.join(__dirname,'public')));
  * Set differnet middlewares
  * Cors: we gonna make it public, so any domain could access it but we need authentication to disable some routers if users doesn't send it correctly
  * bodyParser: basically it gets data from the request. And we just use json file here to grab data
+ * passport: authentication and tokew system
  */
 app.use(cors());
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
 /*
  * Set differnt routers
  * any url with /users goes to users floder
