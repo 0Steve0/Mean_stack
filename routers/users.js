@@ -10,7 +10,7 @@ const User = require('../modles/user');
 const config = require('../config/database');
 //Register
 router.post('/register',function(req,res){
-
+// let: declare a block of local variable
   let newUser = new User({
     name: req.body.name,
     email: req.body.email,
@@ -37,10 +37,10 @@ router.post('/authentication',function(req,res){
       return res.json({success:false,msg:'User Not Found'});
     }
 
-    User.comparePassword(password,user.password,function(err,isMatch){
+    User.comparePassword(password, user.password, function(err,isMatch){
       if(err) throw err;
       if(isMatch){
-        const token = jwt.sign(user, config.secret,{
+          const token = jwt.sign(user, config.secret,{
           expiresIn:3000 // set expire for 50 mins
         });
         res.json({
@@ -60,6 +60,8 @@ router.post('/authentication',function(req,res){
   });
 });
 //profile
+// protect the profile page withe token we created
+
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req,res,next)=> {
   res.json({user: req.user});
 });
