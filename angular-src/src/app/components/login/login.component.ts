@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     }
     this.authService.authenticateUser(user).subscribe(data=>{
       if(data.success){
-        this.authService.storeUserData(data.token,data.user);
+        var token = 'JWT'+' '+data.token.substring(3);//add a space bewtween them
+        this.authService.storeUserData(token,data.user);
         this.flashmessage.show('Successfully Login!',{cssClass:'alert-success',timeout:3000});
         this.router.navigate(['/dashboard']);
       }else{

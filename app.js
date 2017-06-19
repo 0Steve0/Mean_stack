@@ -43,9 +43,6 @@ require('./config/passport')(passport);
  */
 app.use('/users',users);
 
-app.get('/',function(req,res){
-    res.send('Test');
-});
 
 app.listen(port,function(){
   console.log('Server is running at: '+port)
